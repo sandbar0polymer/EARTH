@@ -34,7 +34,8 @@ module.exports = {
             "https": require.resolve("https-browserify"),
             "os": require.resolve("os-browserify/browser"),
             "url": require.resolve("url/"),
-            "buffer": require.resolve("buffer")
+            "buffer": require.resolve("buffer"),
+            "zlib": require.resolve("browserify-zlib"),
         },
     },
     module: {
@@ -76,6 +77,9 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             Buffer: ['buffer', 'Buffer'],
+        }),
+        new webpack.ProvidePlugin({
+            zlib: 'zlib',
         }),
     ],
 };
